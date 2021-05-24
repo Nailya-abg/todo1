@@ -8,5 +8,10 @@
 </head>
 <body>
     <h2>Test</h2>
+    <div>Версия2</div>
+   {% for todo in todo_list %}
+       <h3>{{ todo.text}}-{{ todo.created_at}}-{{ todo.is_closed}}</h3>
+
+   {% endfor %}
 </body>
 </html>
