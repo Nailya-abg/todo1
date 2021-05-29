@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'styles/checkbox.css'%}"/>
 </head>
 <body>
+
     
     <section>
 
@@ -33,7 +34,11 @@
         <div class="todo_container">
 
             {% for todo in todo_list %}
-            <div class="todo_item">
+            <div class="todo_item ">
+                {% if todo.is_favorite %}
+                    marked
+
+                {% endif %}
             <div class="todo_item_header">
                 <label class="checkbox_container">
                     <input type="checkbox"/>
@@ -44,14 +49,16 @@
             <div class="todo_item_footer">
                 <p>17.11.2020<span>17:22</span></p>
                 <div class="action_buttons">
-                    <img src="{% static './icons/unmarked.png' %}"/>
-            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}"/></a>
+                    {% if todo.is_favorite %}
+                    <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/marked.png' %}"/></a>
+                    <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './icons/unmarked.png' %}"/></a>
+                    <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}"/></a>
 
                 </div>
             </div>
-                  
+            {% endfor %}           
             </div>
-        {% endfor %} 
+         
         </div>
 
 
