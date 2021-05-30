@@ -88,6 +88,10 @@ section{
     font-family: sans-serif;
 }
 
+.todo_item_header h4 a{
+    text-decoration: none;
+}
+
 .todo_item_footer{
     display: flex;
     justify-content: space-between;
@@ -98,6 +102,10 @@ section{
     font-size: 15px;
     font-family: sans-serif;
 }
+
+.todo_item_footer .action_buttons{
+    display: flex;
+}    
 
 .todo_item_footer img{
     width: 25px;

@@ -44,17 +44,19 @@
                 />
                 <spanclass="checkmark"></span>
               </label>
-              <h4>{{ todo.text }}</h4>
+              
+              <h4><a href="{% url 'close-todo' todo.id %}">{{ todo.text }}</a></h4>
+            
             </div>
             <div class="todo_item_footer">
               <p>{{ todo.created_at }}</p>
               <div class="action_buttons">
                   <a href="{% url 'mark-todo' todo.id %}">
- {% if todo.is_favorite %}
+                      {% if todo.is_favorite %}
                       <img src="{% static 'icons/marked.png' %}" />
- {% else %}
+                      {% else %}
                       <img src="{% static 'icons/unmarked.png' %}" />
- {% endif %}
+                      {% endif %}
                   </a>
                   <a href="{% url 'delete-todo' todo.id %}">
                     <img src="{% static 'icons/delete.png' %}" />

@@ -28,12 +28,12 @@ def delete_todo (requect, id):
 
 def mark_todo (requect, id):
     todo=ToDo.objects.get(id=id)
-    todo.is_favorite=True
+    todo.is_favorite=not todo.is_closed
     todo.save()
     return redirect(test)
 
 def close_todo(request, id):
     todo = ToDo.objects.get(id=id)
-    todo.is_closed = True
+    todo.is_closed = not todo.is_closed
     todo.save()
     return redirect(test)    
