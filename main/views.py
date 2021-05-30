@@ -31,3 +31,9 @@ def mark_todo (requect, id):
     todo.is_favorite=True
     todo.save()
     return redirect(test)
+
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = True
+    todo.save()
+    return redirect(test)    
